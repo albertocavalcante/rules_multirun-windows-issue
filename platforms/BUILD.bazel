@@ -1,0 +1,8 @@
+platform(
+    name = "windows_x86_64_compat",
+    constraint_values = [
+        "@platforms//os:windows",
+        "@platforms//cpu:x86_64",
+    ],
+    visibility = ["//visibility:public"],
+)

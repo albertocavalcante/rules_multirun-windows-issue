@@ -1,0 +1,4 @@
+{
+    "bazel.queriesShareServer": false,
+    "files.eol": "\n",
+}

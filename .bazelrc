@@ -1,0 +1,5 @@
+common --enable_platform_specific_config
+common:windows_arm64 --extra_toolchains=@zig_sdk//toolchain:windows_amd64
+common:windows_arm64 --host_platform=//platforms:windows_x86_64_compat
+common:debug --toolchain_resolution_debug=".*"
+common --action_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1

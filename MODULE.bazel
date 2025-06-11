@@ -1,0 +1,25 @@
+"""rules_multirun_issue"""
+
+
+module(
+    name = "rules_multirun_issue",
+    version = "0.0.1",
+)
+
+bazel_dep(name = "platforms", version = "1.0.0")
+bazel_dep(name = "rules_cc", version = "0.1.1")
+bazel_dep(name = "rules_multirun", version = "0.12.0")
+bazel_dep(name = "aspect_rules_lint", version = "1.4.4", repo_name = "rules_lint")
+bazel_dep(name = "buildifier_prebuilt", version = "8.2.0.2")
+bazel_dep(name = "hermetic_cc_toolchain", version = "4.0.0")
+
+zig_toolchains = use_extension("@hermetic_cc_toolchain//toolchain:ext.bzl", "toolchains")
+use_repo(
+    zig_toolchains,
+    "zig_sdk",
+)
+
+register_toolchains(
+    "@zig_sdk//toolchain:windows_amd64",
+    "@zig_sdk//toolchain:windows_arm64",
+)

@@ -1,0 +1,11 @@
+load("@rules_lint//format:defs.bzl", "format_multirun")
+
+alias(
+    name = "buildifier",
+    actual = "@buildifier_prebuilt//:buildifier",
+)
+
+format_multirun(
+    name = "format",
+    starlark = ":buildifier",
+)

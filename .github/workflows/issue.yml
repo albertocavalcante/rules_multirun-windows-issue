@@ -1,0 +1,17 @@
+name: Multirun Issue
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  format-check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bazelisk run //tools:format.check
